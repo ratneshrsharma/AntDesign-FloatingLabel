@@ -1,6 +1,6 @@
 {
-  "name": "ant-design-floating-label",
-  "version": "1.0.0",
+  "name": "ant-design-floating-label-forked",
+  "version": "0.0.0",
   "description": "This the example of using antd input with floating label like material design",
   "keywords": [],
   "main": "index.js",
@@ -9,5 +9,14 @@
     "less": "3.11.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
