@@ -1,0 +1,27 @@
+.float-label {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 6px;
+  top: 10px;
+  transition: 0.2s ease all;
+  display: block;
+  background-color: #fff;
+  padding: 0 6px;
+}
+
+.label .required {
+  color: #c00;
+}
+
+.ant-form label.label-float {
+  top: -10px;
+  font-size: 90%;
+  font-weight: 600;
+}

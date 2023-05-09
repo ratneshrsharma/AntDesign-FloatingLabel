@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import "./index.css";
+import "./floatLabel.css";
 
 const FloatLabel = props => {
   const [focus, setFocus] = useState(false);
-  const { children, label, value } = props;
+  const { children, label, value, required, name } = props;
 
   const labelClass =
     focus || (value && value.length !== 0) ? "label label-float" : "label";
@@ -16,7 +16,7 @@ const FloatLabel = props => {
       onFocus={() => setFocus(true)}
     >
       {children}
-      <label className={labelClass}>{label}</label>
+      <label className={labelClass} htmlFor={name}>{label} <span className="required">{required ? "*" : null}</span></label>
     </div>
   );
 };
