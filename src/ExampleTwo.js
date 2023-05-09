@@ -33,7 +33,6 @@ const ExampleTwo = (props) => {
   }, 500);
 
   const handleSubmit = (data) => {
-    console.log("get data", data);
     localStorage.setItem("Example2", JSON.stringify(data))
   }
 
@@ -56,10 +55,12 @@ const ExampleTwo = (props) => {
   }, [form, localStorage])
 
   console.log("formData", formData);
+  console.log("formData.firstName", formData.firstName);
+
   return (
     <div className="example">
-      <h3 className="title">Example 2</h3>
-      <Form form={form} onChange={handleChange} onFinish={handleSubmit} layout="vertical">
+      <h3 className="title">Example 2 - Group of States</h3>
+      <Form form={form} onChange={handleChange} onFinish={handleSubmit} layout="vertical" autoComplete="off" aria-autocomplete="none">
         <Row gutter={20}>
           <Col xs={24} md={12}>
             <FloatLabel label="First Name" name="firstName" value={formData.firstName} required>
@@ -68,7 +69,7 @@ const ExampleTwo = (props) => {
                 value={formData.firstName}
                 required
                 rules={[{ required: true, message: "It can not be blank" }]}
-                onChange={(e) => setFormData({ firstName: e.target.value })} />
+                onChange={(e) => setFormData(prevState => ({ ...prevState, firstName: e.target.value }))} />
             </FloatLabel>
           </Col>
           <Col xs={24} md={12}>
@@ -78,7 +79,7 @@ const ExampleTwo = (props) => {
                 value={formData.lastName}
                 required
                 rules={[{ required: true, message: "It can not be blank" }]}
-                onChange={(e) => setFormData({ lastName: e.target.value })} />
+                onChange={(e) => setFormData(prevState => ({ ...prevState, lastName: e.target.value }))} />
             </FloatLabel>
           </Col>
           <Col xs={24} md={12}>
@@ -91,7 +92,7 @@ const ExampleTwo = (props) => {
                 style={{ width: "100%" }}
                 required
                 rules={[{ required: true, message: "It can not be blank" }]}
-                onChange={(value) => setFormData({ selectValue: value })}
+                onChange={(value) => setFormData(prevState => ({ ...prevState, selectValue: value }))}
                 mode="tags"
                 options={{
                   values: [
@@ -115,7 +116,7 @@ const ExampleTwo = (props) => {
                 value={formData.phone}
                 required
                 rules={[{ required: true, message: "It can not be blank" }]}
-                onChange={(e) => setFormData({ phone: e.target.value })} />
+                onChange={(e) => setFormData(prevState => ({ ...prevState, phone: e.target.value }))} />
             </FloatLabel>
           </Col>
 

@@ -27,7 +27,6 @@ const Example = (props) => {
   }, 500);
 
   const handleSubmit = (data) => {
-    console.log("get data", data);
     localStorage.setItem("Example1", JSON.stringify(data))
   }
 
@@ -48,8 +47,8 @@ const Example = (props) => {
   }, [form, localStorage])
   return (
     <div className="example">
-      <h3 className="title">Example 1</h3>
-      <Form form={form} onChange={handleChange} onFinish={handleSubmit} layout="vertical">
+      <h3 className="title">Example 1 - Single States</h3>
+      <Form form={form} onChange={handleChange} onFinish={handleSubmit} layout="vertical" autoComplete="off" aria-autocomplete="none">
         <Row gutter={20}>
           <Col xs={24} md={12}>
             <FloatLabel label="First Name" name="firstName" value={firstName} required>
